@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using WorkHardApp.Entities;
 
 namespace WorkHardApp.DataAccess
 {
@@ -22,6 +23,30 @@ namespace WorkHardApp.DataAccess
             }
 
             return resultSet;
+        }
+
+        public List<> GetAllCars()
+        {
+            List<Car> allCars = new List<Car>(0);
+            string allCarsQuery = "SELECT * FROM Cars";
+
+            DataSet resultSet = Execute(allCarsQuery);
+
+            DataTable CarsTable = resultSet.Tables[0];
+
+            foreach (DataRow CarRow in CarsTable.Rows)
+            {
+                int Id = (int)CarRow["Id"];
+                string LicensePlate = (string)CarRow["LicensePlate"];
+                int ProductionYear = (int)CarRow["ProductionYear"];
+                string Make = (string)CarRow["Make"];
+                string Model = (string)CarRow["Model"];
+                bool IsAvailable = (bool)CarRow["IsAvailable"];
+
+                Car Car = new Car(id: Id, licensePlate: LicensePlate, productionYear: ProductionYear, make: Make, model: Model, isAvailable: IsAvailable);
+                allCars.Add(Car);
+            }
+            return allCars;
         }
     }
 }

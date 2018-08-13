@@ -43,5 +43,11 @@
     <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorkHardApp.Entities\WorkHardApp.Entities.csproj">
+      <Project>{9ea6e5fd-ae31-4ac3-a535-95c035370973}</Project>
+      <Name>WorkHardApp.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

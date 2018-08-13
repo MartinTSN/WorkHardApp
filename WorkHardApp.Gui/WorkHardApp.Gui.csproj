@@ -93,5 +93,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorkHardApp.DataAccess\WorkHardApp.DataAccess.csproj">
+      <Project>{2ca1a194-d915-4ea4-81f0-84635d1039f3}</Project>
+      <Name>WorkHardApp.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorkHardApp.Entities\WorkHardApp.Entities.csproj">
+      <Project>{9ea6e5fd-ae31-4ac3-a535-95c035370973}</Project>
+      <Name>WorkHardApp.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
