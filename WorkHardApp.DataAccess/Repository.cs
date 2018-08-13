@@ -8,6 +8,6 @@ namespace WorkHardApp.DataAccess
 {
     public class Repository
     {
-        string conectionString = String.Empty;
+        private string conectionString = @"DataSource=CVDB3,1444;InitialCatalog=Beta;";
     }
 }
