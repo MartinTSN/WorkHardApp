@@ -14,8 +14,13 @@ namespace WorkHardApp.Entities
         private DateTime checkOutTime;
 
         public CheckIn(int id, Employee employee, DateTime checkInTime)
+            : this(employee, checkInTime)
         {
             Id = id;
+        }
+
+        public CheckIn(Employee employee, DateTime checkInTime)
+        {
             Employee = employee;
             CheckInTime = checkInTime;
         }
@@ -28,7 +33,7 @@ namespace WorkHardApp.Entities
             }
             set
             {
-                if(value >= 0)
+                if (value >= 0)
                 {
                     id = value;
                 }
@@ -47,7 +52,7 @@ namespace WorkHardApp.Entities
             }
             set
             {
-                if(value != null)
+                if (value != null)
                 {
                     employee = value;
                 }
@@ -66,7 +71,7 @@ namespace WorkHardApp.Entities
             }
             set
             {
-                if(value != null && value <= DateTime.Now)
+                if (value != null && value <= DateTime.Now)
                 {
                     checkInTime = value;
                 }
