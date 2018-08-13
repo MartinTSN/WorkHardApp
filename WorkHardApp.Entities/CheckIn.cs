@@ -12,5 +12,36 @@ namespace WorkHardApp.Entities
         private Employee employee;
         private DateTime checkInTime;
         private DateTime checkOutTime;
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                if(value >= 0)
+                {
+                    id = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        public Employee Employee
+        {
+            get
+            {
+                return employee;
+            }
+            set
+            {
+                if()
+            }
+        }
     }
 }
