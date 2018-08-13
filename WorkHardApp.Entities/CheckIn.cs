@@ -18,7 +18,6 @@ namespace WorkHardApp.Entities
             Id = id;
             Employee = employee;
             CheckInTime = checkInTime;
-            CheckOutTime = default;
         }
 
         public int Id
