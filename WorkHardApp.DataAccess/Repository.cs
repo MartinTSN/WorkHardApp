@@ -11,7 +11,7 @@ namespace WorkHardApp.DataAccess
 {
     public class Repository
     {
-        private string connectionString = @"Data Source=CVBD3,1444;Initial Catalog=Beta;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string connectionString = @"Data Source=CVDB3,1444;Initial Catalog=Beta;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         private DataSet Execute(string query)
         {
