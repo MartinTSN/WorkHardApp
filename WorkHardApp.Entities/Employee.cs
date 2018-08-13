@@ -12,6 +12,13 @@ namespace WorkHardApp.Entities
         private string firstName;
         private string lastName;
 
+        public Employee(int id, string firstName, string lastName)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
         public int Id
         {
             get
