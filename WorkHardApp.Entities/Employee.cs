@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace WorkHardApp.Entities
 {
-    public class Class1
+    public class Employee
     {
+        private int id;
+        private string firstName;
+        private string lastName;
     }
 }
