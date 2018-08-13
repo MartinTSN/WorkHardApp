@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkHardApp.Gui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
     <Grid>
-        
+        <TextBox x:Name="testbox"
+                 HorizontalAlignment="Left"
+                 Height="269"
+                 Margin="133,83,0,0"
+                 TextWrapping="Wrap"
+                 Text="TextBox"
+                 VerticalAlignment="Top"
+                 Width="534" />
+
     </Grid>
 </Window>
