@@ -25,12 +25,12 @@ namespace WorkHardApp.DataAccess
             return resultSet;
         }
 
-        public List<> GetAllCars()
+        public List<Employee> GetAllCars()
         {
-            List<Car> allCars = new List<Car>(0);
-            string allCarsQuery = "SELECT * FROM Cars";
+            List<Employee> allCars = new List<Employee>(0);
+            string allEmployeeQuery = "SELECT * FROM Cars";
 
-            DataSet resultSet = Execute(allCarsQuery);
+            DataSet resultSet = Execute(allEmployeeQuery);
 
             DataTable CarsTable = resultSet.Tables[0];
 
@@ -39,11 +39,8 @@ namespace WorkHardApp.DataAccess
                 int Id = (int)CarRow["Id"];
                 string LicensePlate = (string)CarRow["LicensePlate"];
                 int ProductionYear = (int)CarRow["ProductionYear"];
-                string Make = (string)CarRow["Make"];
-                string Model = (string)CarRow["Model"];
-                bool IsAvailable = (bool)CarRow["IsAvailable"];
 
-                Car Car = new Car(id: Id, licensePlate: LicensePlate, productionYear: ProductionYear, make: Make, model: Model, isAvailable: IsAvailable);
+                Employee Car = new Employee(id: Id, licensePlate: LicensePlate, productionYear: ProductionYear, make: Make, model: Model, isAvailable: IsAvailable);
                 allCars.Add(Car);
             }
             return allCars;
