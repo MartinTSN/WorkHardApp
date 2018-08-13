@@ -9,14 +9,11 @@
         Height="450"
         Width="800">
     <Grid>
-        <TextBox x:Name="testbox"
-                 HorizontalAlignment="Left"
-                 Height="269"
-                 Margin="133,83,0,0"
-                 TextWrapping="Wrap"
-                 Text="TextBox"
-                 VerticalAlignment="Top"
-                 Width="534" />
-
+        <DataGrid HorizontalAlignment="Left"
+                  x:Name="testGrid"
+                  Height="100"
+                  Margin="195,166,0,0"
+                  VerticalAlignment="Top"
+                  Width="100" />
     </Grid>
 </Window>

@@ -22,9 +22,12 @@ namespace WorkHardApp.Gui
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Repository dbHandler;
         public MainWindow()
         {
             InitializeComponent();
+            dbHandler = new Repository();
+            testGrid.ItemsSource = dbHandler.GetAllEmployee();
         }
     }
 }
