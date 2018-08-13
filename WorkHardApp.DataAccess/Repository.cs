@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WorkHardApp.DataAccess
 {
-    public class Class1
+    public class Repository
     {
+        string conectionString = String.Empty;
     }
 }
