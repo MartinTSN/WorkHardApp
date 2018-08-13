@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace WorkHardApp.Entities
 {
+    public enum Absence
+    {
+        noAbsence = 0,
+        partlyAbsent = 1,
+        Absent = 2
+    }
     class CheckIn
     {
         private int id;
         private Employee employee;
         private DateTime checkInTime;
         private DateTime checkOutTime;
+        private Enum absence;
 
         public CheckIn(int id, Employee employee, DateTime checkInTime)
             : this(employee, checkInTime)
