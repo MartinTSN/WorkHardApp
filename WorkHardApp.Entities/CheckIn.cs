@@ -13,6 +13,14 @@ namespace WorkHardApp.Entities
         private DateTime checkInTime;
         private DateTime checkOutTime;
 
+        public CheckIn(int id, Employee employee, DateTime checkInTime)
+        {
+            Id = id;
+            Employee = employee;
+            CheckInTime = checkInTime;
+            CheckOutTime = default;
+        }
+
         public int Id
         {
             get
@@ -40,7 +48,52 @@ namespace WorkHardApp.Entities
             }
             set
             {
-                if()
+                if(value != null)
+                {
+                    employee = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException();
+                }
+            }
+        }
+
+        public DateTime CheckInTime
+        {
+            get
+            {
+                return checkInTime;
+            }
+            set
+            {
+                if(value != null && value <= DateTime.Now)
+                {
+                    checkInTime = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException();
+                }
+            }
+        }
+
+        public DateTime CheckOutTime
+        {
+            get
+            {
+                return checkOutTime;
+            }
+            set
+            {
+                if (value != null && value > checkInTime)
+                {
+                    checkOutTime = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException();
+                }
             }
         }
     }
