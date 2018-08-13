@@ -13,8 +13,12 @@ namespace WorkHardApp.Entities
         private string lastName;
 
         public Employee(int id, string firstName, string lastName)
+            : this(firstName,lastName)
         {
             Id = id;
+        }
+        public Employee(string firstName, string lastName)
+        {
             FirstName = firstName;
             LastName = lastName;
         }

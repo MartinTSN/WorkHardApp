@@ -28,7 +28,7 @@ namespace WorkHardApp.DataAccess
         public List<Employee> GetAllEmployee()
         {
             List<Employee> allEmployees = new List<Employee>(0);
-            string allEmployeeQuery = "SELECT * FROM Cars";
+            string allEmployeeQuery = "SELECT * FROM Employees";
 
             DataSet resultSet = Execute(allEmployeeQuery);
 
