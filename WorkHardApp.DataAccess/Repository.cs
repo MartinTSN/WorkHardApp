@@ -62,7 +62,7 @@ namespace WorkHardApp.DataAccess
         public bool CheckIfCheckedIn(Employee employee)
         {
             bool checkedIn;
-            string query = $"SELECT * FROM CheckIns WHERE Employee={employee.Id} CheckInTime IS NOT NULL AND CheckOutTime IS NULL";
+            string query = $"SELECT * FROM CheckIns WHERE Employee={employee.Id} CheckInTime NOT IS NULL AND CheckOutTime IS NULL";
             DataSet resultSet = Execute(query);
             DataTable CheckInTable = resultSet.Tables[0];
             int amountOfRows = CheckInTable.Rows.Count;
