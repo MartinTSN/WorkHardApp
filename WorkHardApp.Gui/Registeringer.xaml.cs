@@ -41,6 +41,10 @@ namespace WorkHardApp.Gui
             DateTime endDate = (DateTime)DatePickerEndDate.SelectedDate;
             List<CheckIn> checkings = dbHandler.GetCheckInsBetweenDates(startDate, endDate);
 
+            foreach (var employee in checkings)
+            {
+                employee.Employee.FirstName;
+            }
         }
     }
 }
