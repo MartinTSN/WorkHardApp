@@ -45,5 +45,11 @@ namespace WorkHardApp.DataAccess
             }
             return allEmployees;
         }
+
+        public void CheckIn(Employee employee)
+        {
+            string checkInQuery = $"INSERT INTO CheckIns (Employee,CheckInTime,Absence) VALUES({employee.Id},'{DateTime.Now}',0)";
+            Execute(checkInQuery);
+        }
     }
 }
