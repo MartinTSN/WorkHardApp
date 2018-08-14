@@ -107,13 +107,14 @@ namespace WorkHardApp.DataAccess
         public void SetAbsence(Employee employee, DateTime date, int absence)
         {
             string query;
+            string dateString = date.ToString("yyyy/MM/dd");
             if(absence == 2)
             {
                 query = $"INSERT INTO CheckIns (Employee,Absence) VALUES({employee.Id},2)";
             }
             else
             {
-                query = $"UPDATE CheckIns SET Absence={absence} WHERE Employee={employee.Id} AND CheckInTime='{date}'";
+                query = $"UPDATE CheckIns SET Absence={absence} WHERE Employee={employee.Id} AND CheckInTime>='{dateString} 00:00:01' AND CheckInTime<='{dateString} 23:59:59'";
             }
             Execute(query);
         }
