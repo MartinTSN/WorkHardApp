@@ -38,7 +38,8 @@ namespace WorkHardApp.Gui
             {
                 ButtonCheckIn.IsEnabled = false;
                 ButtonCheckUd.IsEnabled = true;
-            } else
+            }
+            else
             {
                 ButtonCheckIn.IsEnabled = true;
                 ButtonCheckUd.IsEnabled = false;
@@ -50,12 +51,21 @@ namespace WorkHardApp.Gui
             Employee employeeToCheckIn = DataGridEmployees.SelectedItem as Employee;
             dbHandler.CheckIn(employeeToCheckIn);
             LabelCheckInTid.Content = DateTime.Now.ToString("yyyy/MM/dd");
+            ButtonCheckIn.IsEnabled = false;
+            ButtonCheckUd.IsEnabled = true;
         }
 
         private void ButtonCheckUd_Click(object sender, RoutedEventArgs e)
         {
             Employee employeeToCheckUd = DataGridEmployees.SelectedItem as Employee;
             dbHandler.CheckOut(employeeToCheckUd);
+            ButtonCheckIn.IsEnabled = true;
+            ButtonCheckUd.IsEnabled = false;
+        }
+
+        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
