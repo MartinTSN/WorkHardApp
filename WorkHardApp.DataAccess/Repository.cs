@@ -51,5 +51,35 @@ namespace WorkHardApp.DataAccess
             string checkInQuery = $"INSERT INTO CheckIns (Employee,CheckInTime,Absence) VALUES({employee.Id},'{DateTime.Now}',0)";
             Execute(checkInQuery);
         }
+
+        public void CheckOut(Employee employee)
+        {
+            string checkOutQuery = $"UPDATE CheckIns SET CheckOutTime='{DateTime.Now}' WHERE Employee={employee.Id}";
+            Execute(checkOutQuery);
+        }
+
+        public bool CheckIfCheckedIn(Employee employee)
+        {
+            bool checkedIn;
+            string query = $"SELECT * FROM CheckIns WHERE Employee={employee.Id} CheckInTime<>'NULL' AND CheckOutTime='NULL'";
+            DataSet resultSet = Execute(query);
+            DataTable CheckInTable = resultSet.Tables[0];
+            int amountOfRows = CheckInTable.Rows.Count;
+            if(amountOfRows == 0)
+            {
+                checkedIn = false;
+            }
+            else if (amountOfRows == 1)
+            {
+                checkedIn = true;
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
+            return checkedIn;
+        }
+
+
     }
 }
