@@ -86,7 +86,9 @@
                 Grid.Row="1"
                 VerticalAlignment="Top"
                 Width="130"
-                Height="95" />
+                Height="95"
+                x:Name="ButtonSearch"
+                Click="ButtonSearch_Click" />
         <Button Content="Sæt Abence"
                 HorizontalAlignment="Left"
                 Margin="154,105.4,0,0"
