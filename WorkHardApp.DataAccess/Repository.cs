@@ -62,7 +62,7 @@ namespace WorkHardApp.DataAccess
         public bool CheckIfCheckedIn(Employee employee)
         {
             bool checkedIn;
-            string query = $"SELECT * FROM CheckIns WHERE Employee={employee.Id} CheckInTime<>'NULL' AND CheckOutTime='NULL'";
+            string query = $"SELECT * FROM CheckIns WHERE Employee={employee.Id} CheckInTime IS NOT NULL AND CheckOutTime IS NULL";
             DataSet resultSet = Execute(query);
             DataTable CheckInTable = resultSet.Tables[0];
             int amountOfRows = CheckInTable.Rows.Count;
@@ -91,12 +91,12 @@ namespace WorkHardApp.DataAccess
             foreach (DataRow CheckInRow in CheckInTable.Rows)
             {
                 int id = (int)CheckInRow["Id"];
-                int employee = (int)CheckInRow["Employee"];
-                DateTime checkIntTime = (DateTime)CheckInRow["CheckInTime"];
+                int employeeId = (int)CheckInRow["Employee"];
+                DateTime checkInTime = (DateTime)CheckInRow["CheckInTime"];
                 DateTime checkOutTime = (DateTime)CheckInRow["CheckOutTime"];
                 int absence = (int)CheckInRow["Absence"];
 
-                CheckIn checkIn = new CheckIn(id,employee,checkInTime,absence);
+                CheckIn checkIn = new CheckIn(id,employees[employeeId],checkInTime,Absence);
                 checkIns.Add(checkIn);
             }
             return checkIns;
