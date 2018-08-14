@@ -27,7 +27,12 @@ namespace WorkHardApp.Gui
         {
             InitializeComponent();
             dbHandler = new Repository();
-            testGrid.ItemsSource = dbHandler.GetAllEmployee();
+            DataGridEmployees.ItemsSource = dbHandler.GetAllEmployee();
+        }
+
+        private void DataGridEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        
         }
     }
 }
