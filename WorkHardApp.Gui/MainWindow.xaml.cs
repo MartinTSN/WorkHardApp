@@ -39,6 +39,7 @@ namespace WorkHardApp.Gui
         {
             Employee employeeToCheckIn = DataGridEmployees.SelectedItem as Employee;
             dbHandler.CheckIn(employeeToCheckIn);
+            LabelCheckInTid.Content = DateTime.Now.ToString("yyyy/MM/dd");
         }
     }
 }
