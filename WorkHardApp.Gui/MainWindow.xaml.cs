@@ -32,7 +32,13 @@ namespace WorkHardApp.Gui
 
         private void DataGridEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-        
+            Employee employeeToCheckIn = DataGridEmployees.SelectedItem as Employee;
+        }
+
+        private void ButtonCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employeeToCheckIn = DataGridEmployees.SelectedItem as Employee;
+            dbHandler.CheckIn(employeeToCheckIn);
         }
     }
 }
