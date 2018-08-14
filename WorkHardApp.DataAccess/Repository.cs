@@ -49,13 +49,13 @@ namespace WorkHardApp.DataAccess
         public void CheckIn(Employee employee)
         {
             
-            string checkInQuery = $"INSERT INTO CheckIns (Employee,CheckInTime,Absence) VALUES({employee.Id},'{DateTime.Now.ToString("yyyy/MM/dd")}',0)";
+            string checkInQuery = $"INSERT INTO CheckIns (Employee,CheckInTime,Absence) VALUES({employee.Id},'{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}',0)";
             Execute(checkInQuery);
         }
 
         public void CheckOut(Employee employee)
         {
-            string checkOutQuery = $"UPDATE CheckIns SET CheckOutTime='{DateTime.Now.ToString("yyyy/MM/dd")}' WHERE Employee={employee.Id}";
+            string checkOutQuery = $"UPDATE CheckIns SET CheckOutTime='{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}' WHERE Employee={employee.Id}";
             Execute(checkOutQuery);
         }
 
@@ -81,7 +81,7 @@ namespace WorkHardApp.DataAccess
             return checkedIn;
         }
 
-        /*public List<CheckIn> GetCheckInsBetweenDates(DateTime startTime, DateTime endTime)
+        public List<CheckIn> GetCheckInsBetweenDates(DateTime startTime, DateTime endTime)
         {
             List<CheckIn> checkIns = new List<CheckIn>(0);
             List<Employee> employees = GetAllEmployee();
@@ -96,10 +96,10 @@ namespace WorkHardApp.DataAccess
                 DateTime checkOutTime = (DateTime)CheckInRow["CheckOutTime"];
                 int absence = (int)CheckInRow["Absence"];
 
-                CheckIn checkIn = new CheckIn(id,employees[employeeId],checkInTime,Absence);
+                CheckIn checkIn = new CheckIn(id,employees[employeeId],checkInTime,(Absence)absence);
                 checkIns.Add(checkIn);
             }
             return checkIns;
-        }*/
+        }
     }
 }
