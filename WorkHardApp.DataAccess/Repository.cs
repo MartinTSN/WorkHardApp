@@ -48,6 +48,7 @@ namespace WorkHardApp.DataAccess
 
         public void CheckIn(Employee employee)
         {
+            
             string checkInQuery = $"INSERT INTO CheckIns (Employee,CheckInTime,Absence) VALUES({employee.Id},'{DateTime.Now}',0)";
             Execute(checkInQuery);
         }
@@ -80,6 +81,22 @@ namespace WorkHardApp.DataAccess
             return checkedIn;
         }
 
+        public List<CheckIn> GetCheckInsBetweenDates(DateTime startTime, DateTime endTime)
+        {
+            List<CheckIn> checkIns = new List<CheckIn>(0);
+            string query = $"SELECT * FROM CheckIns WHERE CheckInTime>='{startTime}' AND CheckOutTime<='{endTime}'";
+            DataSet resultSet = Execute(query);
+            DataTable CheckInTable = resultSet.Tables[0];
+            foreach (DataRow CheckInRow in CheckInTable.Rows)
+            {
+                int id = (int)CheckInRow["Id"];
+                int employee = (int)CheckInRow["Employee"];
+                DateTime lastName = (string)CheckInRow["LastName"];
 
+                CheckIn checkIn = new CheckIn();
+                checkIns.Add(checkIn);
+            }
+            return checkIns;
+        }
     }
 }
