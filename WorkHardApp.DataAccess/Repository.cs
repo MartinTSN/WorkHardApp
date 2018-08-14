@@ -49,7 +49,7 @@ namespace WorkHardApp.DataAccess
         public void CheckIn(Employee employee)
         {
             
-            string checkInQuery = $"INSERT INTO CheckIns (Employee,CheckInTime,Absence) VALUES({employee.Id},'{DateTime.Now}',0)";
+            string checkInQuery = $"INSERT INTO CheckIns (Employee,CheckInTime,Absence) VALUES({employee.Id},'{DateTime.Now.ToString("yyyy/MM/dd")}',0)";
             Execute(checkInQuery);
         }
 
@@ -91,7 +91,9 @@ namespace WorkHardApp.DataAccess
             {
                 int id = (int)CheckInRow["Id"];
                 int employee = (int)CheckInRow["Employee"];
-                DateTime lastName = (string)CheckInRow["LastName"];
+                DateTime lastName = (DateTime)CheckInRow["CheckInTime"];
+                DateTime checkOutTime = (DateTime)CheckInRow["CheckOutTime"];
+                int absence = (int)CheckInRow["Absence"];
 
                 CheckIn checkIn = new CheckIn();
                 checkIns.Add(checkIn);
