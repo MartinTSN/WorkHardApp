@@ -55,7 +55,7 @@ namespace WorkHardApp.DataAccess
 
         public void CheckOut(Employee employee)
         {
-            string checkOutQuery = $"UPDATE CheckIns SET CheckOutTime='{DateTime.Now}' WHERE Employee={employee.Id}";
+            string checkOutQuery = $"UPDATE CheckIns SET CheckOutTime='{DateTime.Now.ToString("yyyy/MM/dd")}' WHERE Employee={employee.Id}";
             Execute(checkOutQuery);
         }
 
@@ -84,9 +84,9 @@ namespace WorkHardApp.DataAccess
         /*public List<CheckIn> GetCheckInsBetweenDates(DateTime startTime, DateTime endTime)
         {
             List<CheckIn> checkIns = new List<CheckIn>(0);
-            string query = $"SELECT * FROM CheckIns WHERE CheckIn.CheckInTime>='{startTime}' AND CheckIn.CheckOutTime<='{endTime}'";
+            List<Employee> employees = GetAllEmployee();
+            string query = $"SELECT * FROM CheckIns WHERE CheckInTime>='{startTime}' AND CheckOutTime<='{endTime}'";
             DataSet resultSet = Execute(query);
-            
             DataTable CheckInTable = resultSet.Tables[0];
             foreach (DataRow CheckInRow in CheckInTable.Rows)
             {
@@ -96,7 +96,7 @@ namespace WorkHardApp.DataAccess
                 DateTime checkOutTime = (DateTime)CheckInRow["CheckOutTime"];
                 int absence = (int)CheckInRow["Absence"];
 
-                //CheckIn checkIn = new CheckIn(id,employee,checkInTime,absence);
+                CheckIn checkIn = new CheckIn(id,employee,checkInTime,absence);
                 checkIns.Add(checkIn);
             }
             return checkIns;
