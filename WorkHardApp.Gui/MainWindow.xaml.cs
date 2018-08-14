@@ -65,7 +65,9 @@ namespace WorkHardApp.Gui
 
         private void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            Registeringer newRegisteringer = new Registeringer();
+            this.Close();
+            newRegisteringer.Show();
         }
     }
 }
