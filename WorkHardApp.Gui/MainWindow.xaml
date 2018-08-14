@@ -61,7 +61,8 @@
                 <Label Content="Check in tid"
                        HorizontalAlignment="Left"
                        Margin="144,51,0,0"
-                       VerticalAlignment="Top" x:Name="LabelCheckInTid" />
+                       VerticalAlignment="Top"
+                       x:Name="LabelCheckInTid" />
             </Grid>
         </GroupBox>
         <GroupBox Grid.Row="1"
@@ -72,7 +73,9 @@
                     HorizontalAlignment="Left"
                     Margin="215,77,0,0"
                     VerticalAlignment="Top"
-                    Width="75" />
+                    Width="75"
+                    x:Name="ButtonCheckUd"
+                    Click="ButtonCheckUd_Click" />
 
         </GroupBox>
         <Button Content="Registeringerne"

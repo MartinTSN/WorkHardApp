@@ -32,7 +32,12 @@ namespace WorkHardApp.Gui
 
         private void DataGridEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            Employee employeeToCheck = DataGridEmployees.SelectedItem as Employee;
+            bool checkedIn = dbHandler.CheckIfCheckedIn(employeeToCheck);
+            if (checkedIn == true)
+            {
+                ButtonCheckIn.IsEnabled = false;
+            }
         }
 
         private void ButtonCheckIn_Click(object sender, RoutedEventArgs e)
@@ -40,6 +45,12 @@ namespace WorkHardApp.Gui
             Employee employeeToCheckIn = DataGridEmployees.SelectedItem as Employee;
             dbHandler.CheckIn(employeeToCheckIn);
             LabelCheckInTid.Content = DateTime.Now.ToString("yyyy/MM/dd");
+        }
+
+        private void ButtonCheckUd_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employeeToCheckUd = DataGridEmployees.SelectedItem as Employee;
+            dbHandler.CheckOut(employeeToCheckUd);
         }
     }
 }
