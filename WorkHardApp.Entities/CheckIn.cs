@@ -8,28 +8,29 @@ namespace WorkHardApp.Entities
 {
     public enum Absence
     {
-        noAbsence = 0,
-        partlyAbsent = 1,
+        NoAbsence = 0,
+        PartlyAbsent = 1,
         Absent = 2
     }
-    class CheckIn
+    public class CheckIn
     {
         private int id;
         private Employee employee;
         private DateTime checkInTime;
         private DateTime checkOutTime;
-        private Enum absence;
+        private Absence absence;
 
-        public CheckIn(int id, Employee employee, DateTime checkInTime)
-            : this(employee, checkInTime)
+        public CheckIn(int id, Employee employee, DateTime checkInTime, Absence absence)
+            : this(employee, checkInTime, absence)
         {
             Id = id;
         }
 
-        public CheckIn(Employee employee, DateTime checkInTime)
+        public CheckIn(Employee employee, DateTime checkInTime, Absence absence)
         {
             Employee = employee;
             CheckInTime = checkInTime;
+            Absence = absence;
         }
 
         public int Id
@@ -107,5 +108,18 @@ namespace WorkHardApp.Entities
                 }
             }
         }
+
+        public Absence Absence
+        {
+            get
+            {
+                return absence;
+            }
+            set
+            {
+                absence = value;
+            }
+        }
+
     }
 }
