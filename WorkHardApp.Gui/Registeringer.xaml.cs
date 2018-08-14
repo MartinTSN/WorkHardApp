@@ -39,8 +39,8 @@ namespace WorkHardApp.Gui
         {
             DateTime startDate = (DateTime)DatePickerStartDate.SelectedDate;
             DateTime endDate = (DateTime)DatePickerEndDate.SelectedDate;
-            DataGridEmployees.ItemsSource = dbHandler.GetCheckInsBetweenDates(startDate, endDate);
-            
+            List<CheckIn> checkings = dbHandler.GetCheckInsBetweenDates(startDate, endDate);
+
         }
     }
 }
