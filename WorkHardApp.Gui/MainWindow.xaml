@@ -13,23 +13,52 @@
             <ColumnDefinition Width="0.75*"></ColumnDefinition>
             <ColumnDefinition Width="1.25*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
         <GroupBox Header="Employees"
                   Grid.Column="0"
-                  Margin="10,0,9.6,10">
-            <DataGrid HorizontalAlignment="Left"
+                  Margin="10,0,9.6,10"
+                  Grid.RowSpan="2">
+            <DataGrid Grid.RowSpan="2"
+                HorizontalAlignment="Left"
                       Height="387"
                       VerticalAlignment="Top"
                       Width="268"
                       Margin="0,0,-2.4,0"
-                      x:Name="DataGridEmployees" />
+                      x:Name="DataGridEmployees"
+                      SelectionChanged="DataGridEmployees_SelectionChanged"
+                      AutoGenerateColumns="False"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns="False"
+                      IsReadOnly="True"
+                      CanUserResizeRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First Name"
+                                        Binding="{Binding FirstName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Last Name"
+                                        Binding="{Binding LastName}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
 
         </GroupBox>
-        <DataGrid Grid.Column="1"
-                  HorizontalAlignment="Left"
-                  x:Name="testGrid"
-                  Height="100"
-                  Margin="386.4,310,0,0"
-                  VerticalAlignment="Top"
-                  Width="100" />
+        <GroupBox Header="Check in" Grid.Column="1" Grid.Row="0"
+                  Margin="10.4,10,9.6,9.6">
+            <Label Content="Label"
+                   HorizontalAlignment="Left"
+                   Margin="62,74,0,0"
+                   VerticalAlignment="Top" x:Name="test" />
+        </GroupBox>
+        <Button Content="Button"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="252.4,64,0,0"
+                VerticalAlignment="Top"
+                Width="75"
+                x:Name="ButtonCheckIn"
+                Click="ButtonCheckIn_Click" />
     </Grid>
 </Window>
