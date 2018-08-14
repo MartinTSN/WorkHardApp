@@ -85,7 +85,9 @@ namespace WorkHardApp.DataAccess
         {
             List<CheckIn> checkIns = new List<CheckIn>(0);
             List<Employee> employees = GetAllEmployee();
-            string query = $"SELECT * FROM CheckIns WHERE CheckInTime>='{startTime}' AND CheckOutTime<='{endTime}'";
+            string startTimeString = startTime.ToString("yyyy/MM/dd");
+            string endTimeString = endTime.ToString("yyyy/MM/dd");
+            string query = $"SELECT * FROM CheckIns WHERE CheckInTime>='{startTimeString}' AND CheckOutTime<='{endTimeString}'";
             DataSet resultSet = Execute(query);
             DataTable CheckInTable = resultSet.Tables[0];
             foreach (DataRow CheckInRow in CheckInTable.Rows)
@@ -100,6 +102,20 @@ namespace WorkHardApp.DataAccess
                 checkIns.Add(checkIn);
             }
             return checkIns;
+        }
+
+        public void SetAbsence(Employee employee, DateTime date, int absence)
+        {
+            string query;
+            if(absence == 2)
+            {
+                query = $"INSERT INTO CheckIns (Employee,Absence) VALUES({employee.Id},2)";
+            }
+            else
+            {
+                query = $"UPDATE CheckIns SET Absence={absence} WHERE Employee={employee.Id}";
+            }
+            Execute(query);
         }
     }
 }
