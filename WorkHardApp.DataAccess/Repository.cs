@@ -98,7 +98,7 @@ namespace WorkHardApp.DataAccess
                 DateTime checkOutTime = (DateTime)CheckInRow["CheckOutTime"];
                 int absence = (int)CheckInRow["Absence"];
 
-                CheckIn checkIn = new CheckIn(id,employees[employeeId],checkInTime,(Absence)absence);
+                CheckIn checkIn = new CheckIn(id,employees[employeeId-1],checkInTime,(Absence)absence);
                 checkIns.Add(checkIn);
             }
             return checkIns;
@@ -113,7 +113,7 @@ namespace WorkHardApp.DataAccess
             }
             else
             {
-                query = $"UPDATE CheckIns SET Absence={absence} WHERE Employee={employee.Id}";
+                query = $"UPDATE CheckIns SET Absence={absence} WHERE Employee={employee.Id} AND CheckInTime='{date}'";
             }
             Execute(query);
         }
