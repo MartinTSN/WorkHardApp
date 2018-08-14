@@ -37,6 +37,11 @@ namespace WorkHardApp.Gui
             if (checkedIn == true)
             {
                 ButtonCheckIn.IsEnabled = false;
+                ButtonCheckUd.IsEnabled = true;
+            } else
+            {
+                ButtonCheckIn.IsEnabled = true;
+                ButtonCheckUd.IsEnabled = false;
             }
         }
 

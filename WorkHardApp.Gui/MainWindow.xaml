@@ -57,7 +57,8 @@
                         Width="75"
                         x:Name="ButtonCheckIn"
                         Click="ButtonCheckIn_Click"
-                        Height="19" />
+                        Height="19"
+                        IsEnabled="False" />
                 <Label Content="Check in tid"
                        HorizontalAlignment="Left"
                        Margin="144,51,0,0"
@@ -75,7 +76,8 @@
                     VerticalAlignment="Top"
                     Width="75"
                     x:Name="ButtonCheckUd"
-                    Click="ButtonCheckUd_Click" />
+                    Click="ButtonCheckUd_Click"
+                    IsEnabled="False" />
 
         </GroupBox>
         <Button Content="Registeringerne"
